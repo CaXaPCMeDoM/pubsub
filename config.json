@@ -1,0 +1,4 @@
+{
+  "grpc_port": 50051,
+  "log_level": "info"
+}
