@@ -1,5 +1,5 @@
 # Как запускать?
-Если находитесь в директории pubsub, то:
+Если вы находитесь корне проекта, то:
 ```
 go build -o pubsub-server.exe ./cmd/server/main.go
 ./pubsub-server.exe
