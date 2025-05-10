@@ -7,7 +7,6 @@ import (
 	"net"
 	"os"
 	"os/signal"
-	"runtime"
 	"syscall"
 	"time"
 
@@ -19,13 +18,6 @@ import (
 
 	"google.golang.org/grpc"
 )
-
-func monitorGoroutines() {
-	for {
-		time.Sleep(5 * time.Second)
-		fmt.Printf("Number of goroutines: %d\n", runtime.NumGoroutine())
-	}
-}
 
 func main() {
 	configPath := flag.String("config", "", "Path to config file")
@@ -68,7 +60,6 @@ func main() {
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 
-	go monitorGoroutines()
 	<-quit
 	log.Info("Shutting down server...")
 
